@@ -3,7 +3,7 @@ var request = require('request');
 
 let postWebhook = (req, res) =>{
     // Parse the request body from the POST
-    console.log('postWebhook req: ' + JSON.stringify(req).toString());
+   
     let body = req.body;
 
     // Check the webhook event is from a Page subscription
@@ -20,7 +20,9 @@ let postWebhook = (req, res) =>{
             // Get the sender PSID
             let sender_psid = webhook_event.sender.id;
             console.log('Sender PSID: ' + sender_psid);
-
+            
+          console.log('postWebhook req: ' + JSON.stringify(req.body).toString());
+            
             // Check if the event is a message or postback and
             // pass the event to the appropriate handler function
             if (webhook_event.message) {
