@@ -3,6 +3,7 @@ var request = require('request');
 
 let postWebhook = (req, res) =>{
     // Parse the request body from the POST
+    console.log('postWebhook req: ' + req);
     let body = req.body;
 
     // Check the webhook event is from a Page subscription
@@ -40,6 +41,7 @@ let postWebhook = (req, res) =>{
 };
 
 let getWebhook = (req, res) => {
+    console.log('getWebhook req: ' + req);
     // Your verify token. Should be a random string.
     let VERIFY_TOKEN = process.env.FACEBOOK_PAGE_ACCESS_TOKEN;
 
@@ -47,7 +49,8 @@ let getWebhook = (req, res) => {
     let mode = req.query['hub.mode'];
     let token = req.query['hub.verify_token'];
     let challenge = req.query['hub.challenge'];
-
+    console.log('getWebhook mode: ' + mode);
+    console.log('getWebhook token: ' + token);
     // Checks if a token and mode is in the query string of the request
     if (mode && token) {
 
