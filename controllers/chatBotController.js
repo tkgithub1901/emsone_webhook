@@ -72,6 +72,7 @@ let getWebhook = (req, res) => {
 
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
+    console.log('received_message text: ' + received_message.text);
     let response;
 
     // Check if the message contains text
@@ -213,7 +214,8 @@ function callSendAPI(sender_psid, response) {
         "json": request_body
     }, (err, res, body) => {
         if (!err) {
-            console.log('message sent!');
+            console.log('callSendAPI message sent!');
+            console.log('postWebhook req: ' + JSON.stringify(res).toString());
         } else {
             console.error("Unable to send message:" + err);
         }
