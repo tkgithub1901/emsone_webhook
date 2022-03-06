@@ -2,7 +2,6 @@ require("dotenv").config();
 var request = require('request');
 
 let postWebhook = (req, res) =>{
-    System.err.println("postWebhook, logs!", req);
     // Parse the request body from the POST
     let body = req.body;
 
@@ -41,7 +40,6 @@ let postWebhook = (req, res) =>{
 };
 
 let getWebhook = (req, res) => {
-    System.err.println("getWebhook, logs!", req);
     // Your verify token. Should be a random string.
     let VERIFY_TOKEN = process.env.FACEBOOK_PAGE_ACCESS_TOKEN;
 
